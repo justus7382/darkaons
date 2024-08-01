@@ -288,7 +288,7 @@ function pasang_domain() {
     echo $host1 > /etc/xray/domain
     echo $host1 > /root/domain
     if [[ $nama == "" ]]; then
-      echo "KIZARU STORE VPN" > /etc/xray/username
+      echo "ANON STORE VPN" > /etc/xray/username
     else
       echo $nama > /etc/xray/username
     fi
@@ -798,7 +798,7 @@ EOF
 
   echo "Enabling udp-custom service"
   systemctl enable udp-custom &>/dev/null
-  print_success "UDP-CUSTOM BY KIZARU STORE VPN Installed"
+  print_success "UDP-CUSTOM BY ANON STORE VPN Installed"
   clear
   print_install "Installing NOOBZVPNS"
   cd
@@ -813,7 +813,7 @@ EOF
 
   echo "Enabling noobzvpns service"
   systemctl enable noobzvpns &>/dev/null
-  print_success "NOOBZVPNS BY KIZARU STORE VPN Installed"
+  print_success "NOOBZVPNS BY ANON STORE VPN Installed"
 }
 
 # Restart all services
