@@ -30,7 +30,7 @@ check_subdomain_exists() {
 }
 
 # Set constants
-DOMAIN=carltech.live
+DOMAIN=darkanon.tech
 CF_ID=ccarlito7641@gmail.com
 CF_KEY=f1590d14d5d19fac6d6fb84b785b8090ab1ec
 
