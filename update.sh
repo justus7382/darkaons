@@ -1,55 +1,6 @@
-#!/bin/bash
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-red() { echo -e "\\033[32;1m${*}\\033[0m"; }
-rm -r /usr/local/sbin
-mkdir /usr/local/sbin
-clear
-fun_bar() {
-    CMD[0]="$1"
-    CMD[1]="$2"
-    (
-        [[ -e $HOME/fim ]] && rm $HOME/fim
-        ${CMD[0]} -y >/dev/null 2>&1
-        ${CMD[1]} -y >/dev/null 2>&1
-        touch $HOME/fim
-    ) >/dev/null 2>&1 &
-    tput civis
-    echo -ne "  \033[0;33mPlease Wait Loading \033[1;37m- \033[0;33m["
-    while true; do
-        for ((i = 0; i < 18; i++)); do
-            echo -ne "\033[0;32m#"
-            sleep 0.1s
-        done
-        [[ -e $HOME/fim ]] && rm $HOME/fim && break
-        echo -e "\033[0;33m]"
-        sleep 1s
-        tput cuu1
-        tput dl1
-        echo -ne "  \033[0;33mPlease Wait Loading \033[1;37m- \033[0;33m["
-    done
-    echo -e "\033[0;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
-    tput cnorm
-}
-res1() {
-wget https://raw.githubusercontent.com/genome96/darkaons/main/Cdy/menu.zip
-7z x -pHeyHeyMauDecryptYaAwokawok menu.zip
-chmod +x menu/*
-mv menu/* /usr/local/sbin
-rm -rf menu
-rm -rf menu.zip
-}
-netfilter-persistent
-clear
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \e[1;97;101m          UPDATE SCRIPT        \e[0m"
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e ""
-echo -e "  \033[1;91m update script service\033[1;37m"
-fun_bar 'res1'
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e ""
-read -n 1 -s -r -p "Press [ Enter ] to back on menu"
-menu
+# Eencrypted by EncTool
+#By Darkanon
 
-###########- COLOR CODE -##############
+z="
+";KCz='((i ';JEz='bar ';yCz='serc';fBz='h $H';RDz='yptY';ECz='["';dBz='D[1]';BBz='mkdi';ADz='onte';uz='rm -';LCz='= 0;';WBz='${CM';vDz='TE S';DCz=';33m';VBz='im';NCz=' 18;';xDz='T   ';yDz=' \e[';QCz=' "\0';dz='te +';jDz='rsis';GDz='aons';QEz='-p "';XDz=' men';DDz='enom';UEz='r ] ';SDz='aAwo';CBz='clea';bDz='* /u';kCz='2m O';JDz='y/me';tDz='    ';rCz='}';iz='er"`';uDz='UPDA';JCz='for ';OCz=' i++';aDz='enu/';Qz=' 2>&';FBz='bar(';GCz='e tr';YCz='& br';hz='d "$';vCz='/raw';KEz=''\''res';pz='2;1m';jBz='null';pCz=' cno';Oz='gle.';Gz=' --i';wDz='CRIP';rDz='7;10';nBz='is';yz='/sbi';Bz='From';QDz='Decr';sCz='res1';KDz='nu.z';QBz='fim ';Pz='com/';ABz='n';rBz='[0;3';lCz='K !\';dCz='"';sz='3[0m';YDz='u/*';MCz=' i <';Kz='lent';CEz='"  \';lDz='3[1;';TDz='kawo';oBz=' -ne';HBz='CMD[';lBz='tput';nCz='1;37';eCz='p 1s';Iz='ure ';cBz='2>&1';bCz='3[0;';xz='ocal';mz=' -e ';aCz='"\03';JBz='$1"';sBz='3mPl';TEz='Ente';qBz='\033';dDz='enu';CCz='33[0';eDz='enu.';tz='"; }';cDz='rf m';ZCz='eak';PDz='yMau';Vz='sed ';nz='"\\0';NBz='[[ -';wBz='adin';Mz='ps:/';MDz='7z x';yBz='33[1';VDz='chmo';TCz='slee';FEz=' scr';gz='d" -';YEz='enu"';PBz='OME/';ODz='eyHe';Cz='Serv';ICz='do';XBz='D[0]';xCz='hubu';fCz=' cuu';Wz='-e '\''';SBz='& rm';LBz='$2"';qz='${*}';AEz='0m"';Yz='Date';OBz='e $H';RCz=';32m';FDz='dark';ez='"%Y-';OEz='1 -s';qCz='rm';DEz='1;91';NEz=' -n ';LEz='1'\''';hBz=') >/';mCz='033[';pBz=' "  ';tCz='() {';jz='red(';XEz='on m';EEz='m up';rz='\\03';Dz='er=$';oDz='━\03';iDz='r-pe';vBz='t Lo';bBz='ull ';qDz='[1;9';bz='biji';WCz='done';GEz='ipt ';kz=') { ';LDz='ip';YBz='} -y';gCz='1';Tz=' Dat';lz='echo';uCz='wget';uBz=' Wai';Rz='1 | ';UDz='k me';wCz='.git';REz='Pres';Xz='s/< ';Ez='(cur';PCz=')); ';SCz='#"';PEz=' -r ';fz='%m-%';xBz='g \0';MBz='(';fDz='zip';mDz='36m━';Lz=' htt';nDz='━━━━';XCz='im &';cz='=`da';Sz='grep';EDz='e96/';UBz='ME/f';ZEz='menu';kBz='1 &';vz='r /u';NDz=' -pH';wz='sr/l';sDz='1m  ';IDz='n/Cd';Zz=': //';aBz='ev/n';RBz=']] &';HCz='ue; ';az=''\'')';WEz='ack ';gDz='netf';ZBz=' >/d';BEz='""';EBz='fun_';jCz='7m -';HDz='/mai';Nz='/goo';WDz='d +x';hDz='ilte';tBz='ease';kDz='tent';HEz='serv';Fz='l -v';hCz=' dl1';Jz='--si';ZDz='mv m';Uz='e | ';CDz='om/g';FCz='whil';IEz='ice\';oz='33[3';oCz='m"';eBz='touc';Hz='nsec';iBz='dev/';ACz=';37m';cCz='33m]';DBz='r';SEz='s [ ';MEz='read';UCz='p 0.';VCz='1s';gBz='fim';BDz='nt.c';mBz=' civ';iCz='[1;3';KBz='1]="';VEz='to b';IBz='0]="';BCz='- \0';TBz=' $HO';pDz='" \e';GBz=') {';Az='date';
+eval "$Az$Bz$Cz$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Tz$Uz$Vz$Wz$Xz$Yz$Zz$az$z$bz$cz$dz$ez$fz$gz$hz$Az$Bz$Cz$iz$z$jz$kz$lz$mz$nz$oz$pz$qz$rz$sz$tz$z$uz$vz$wz$xz$yz$ABz$z$BBz$vz$wz$xz$yz$ABz$z$CBz$DBz$z$EBz$FBz$GBz$z$HBz$IBz$JBz$z$HBz$KBz$LBz$z$MBz$z$NBz$OBz$PBz$QBz$RBz$SBz$TBz$UBz$VBz$z$WBz$XBz$YBz$ZBz$aBz$bBz$cBz$z$WBz$dBz$YBz$ZBz$aBz$bBz$cBz$z$eBz$fBz$PBz$gBz$z$hBz$iBz$jBz$Qz$kBz$z$lBz$mBz$nBz$z$lz$oBz$pBz$qBz$rBz$sBz$tBz$uBz$vBz$wBz$xBz$yBz$ACz$BCz$CCz$DCz$ECz$z$FCz$GCz$HCz$ICz$z$JCz$KCz$LCz$MCz$NCz$OCz$PCz$ICz$z$lz$oBz$QCz$CCz$RCz$SCz$z$TCz$UCz$VCz$z$WCz$z$NBz$OBz$PBz$QBz$RBz$SBz$TBz$UBz$XCz$YCz$ZCz$z$lz$mz$aCz$bCz$cCz$dCz$z$TCz$eCz$z$lBz$fCz$gCz$z$lBz$hCz$z$lz$oBz$pBz$qBz$rBz$sBz$tBz$uBz$vBz$wBz$xBz$yBz$ACz$BCz$CCz$DCz$ECz$z$WCz$z$lz$mz$aCz$bCz$cCz$qBz$iCz$jCz$qBz$iCz$kCz$lCz$mCz$nCz$oCz$z$lBz$pCz$qCz$z$rCz$z$sCz$tCz$z$uCz$Lz$Mz$vCz$wCz$xCz$yCz$ADz$BDz$CDz$DDz$EDz$FDz$GDz$HDz$IDz$JDz$KDz$LDz$z$MDz$NDz$ODz$PDz$QDz$RDz$SDz$TDz$UDz$KDz$LDz$z$VDz$WDz$XDz$YDz$z$ZDz$aDz$bDz$wz$xz$yz$ABz$z$uz$cDz$dDz$z$uz$cDz$eDz$fDz$z$rCz$z$gDz$hDz$iDz$jDz$kDz$z$CBz$DBz$z$lz$mz$aCz$lDz$mDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$oDz$sz$dCz$z$lz$mz$pDz$qDz$rDz$sDz$tDz$tDz$uDz$vDz$wDz$xDz$tDz$yDz$AEz$z$lz$mz$aCz$lDz$mDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$oDz$sz$dCz$z$lz$mz$BEz$z$lz$mz$CEz$mCz$DEz$EEz$Az$FEz$GEz$HEz$IEz$mCz$nCz$oCz$z$EBz$JEz$KEz$LEz$z$lz$mz$aCz$lDz$mDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$nDz$oDz$sz$dCz$z$lz$mz$BEz$z$MEz$NEz$OEz$PEz$QEz$REz$SEz$TEz$UEz$VEz$WEz$XEz$YEz$z$ZEz"
