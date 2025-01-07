@@ -25,7 +25,7 @@ mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
-wget https://raw.githubusercontent.com/genome96/darkaons/main/Bot/kyt.zip
+wget https://raw.githubusercontent.com/justus7382/genome96/darkaons/main/Bot/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 
